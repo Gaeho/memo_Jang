@@ -1,0 +1,68 @@
+다중행함수 연습
+
+CREATE TABLE 시스템사용이력 (
+	메뉴ID			VARCHAR(1),
+	사용유형코드		VARCHAR(3),
+	사용일시			DATE
+);
+
+INSERT INTO 시스템사용이력 VALUES ('1', '100', SYSDATE);
+INSERT INTO 시스템사용이력 VALUES ('1', '300', SYSDATE-1);
+INSERT INTO 시스템사용이력 VALUES ('1', '300', SYSDATE);
+INSERT INTO 시스템사용이력 VALUES ('1', '200', SYSDATE-3);
+INSERT INTO 시스템사용이력 VALUES ('2', '100', SYSDATE);
+INSERT INTO 시스템사용이력 VALUES ('2', '300', SYSDATE-2);
+INSERT INTO 시스템사용이력 VALUES ('2', '300', SYSDATE);
+INSERT INTO 시스템사용이력 VALUES ('2', '300', SYSDATE-1);
+INSERT INTO 시스템사용이력 VALUES ('3', '200', SYSDATE);
+INSERT INTO 시스템사용이력 VALUES ('3', '200', SYSDATE-1);
+INSERT INTO 시스템사용이력 VALUES ('3', '100', SYSDATE);
+INSERT INTO 시스템사용이력 VALUES ('3', '100', SYSDATE-2);
+INSERT INTO 시스템사용이력 VALUES ('3', '200', SYSDATE);
+INSERT INTO 시스템사용이력 VALUES ('3', '100', SYSDATE-1);
+
+문제에서 나온 쿼리 
+select 메뉴id, 사용유형코드, avg(count(*))
+from 시스템사용이력
+group by 메뉴id, 사용유형코드;
+
+이것이 오류 없이 실행 되겠는가?
+
+생각하는 로직
+group by로 표시된 속성만 select에 
+단일로 사용이 가능하고 
+select에 등장 한다면 group by 표현식 
+이외에 모두 group by 에 기술되어야 한다.
+group by에 메뉴id, 사용유형코드는 
+반드시 select 절에도 표시되어야 한다.
+
+Order by에 나오는 기준 역시 select에 등장 하여야 한다
+혹은 group by 표현식이어야한다.
+
+다중행 함수가 중첩되어 사용되었다. 
+-> 가장 안에 들어 있는 함수부터 꺼내서 
+Select 절에 배치해 본다. 가능하겠는가?
+select 메뉴id, 사용유형코드, count(*)
+여기에서 count(*)는 메뉴id와 사용유형코드를 
+공유하는 그룹의 숫자이다.
+(한 아이디가 특정 유형코드를 사용한 횟수)
+
+그렇다면 avg를 입히는 것이 가능하겠는가?
+(한 아이디가 특정 유형코드를 사용한 횟수)의 평균 
+
+select 메뉴id, 사용유형코드, count(*) as cnt, avg(count(*)) over(partition by 메뉴id) as 조회평균
+from 시스템사용이력
+group by 메뉴id, 사용유형코드;
+->특정 이용 패턴의 평균 사실 의미도 없고 
+속성으로 select 메뉴id, 사용유형코드, count(*) 에 붙는 것도 불가능
+
+왜냐하면 메뉴id와 사용유형코드로 묶어서 숫자를 세어 놨는데
+전체를 기준으로 평균을 낸 자료를 동일 선상에 놓을 수 없기 때문 
+
+다만 이런 경우는 가능하다. 
+특정 Id를 기준으로 (한 아이디가 특정 유형코드를 사용한 횟수)
+의 평균 -> 특정 id의 특정 유형코드를 사용하는 횟수 평균 
+특정 유형코드를 평균적으로 몇 번 사용하는가?
+
+
+
