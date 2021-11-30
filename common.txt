@@ -1,3 +1,9 @@
 1234aa
 asdf
 qwer
+
+public int add(int k){
+	int kk = k+1; 
+
+	return kk
+}
