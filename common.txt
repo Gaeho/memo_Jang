@@ -2,6 +2,9 @@
 asdf
 qwer
 
-public void add(int k){
+public int add(int k){
+	int kk = k+1; 
 
+	return kk
 }
+
