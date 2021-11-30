@@ -178,3 +178,7 @@ Query에서 조건절 설정할 시에 부등호를 사용할 수 있다.
 	</select >
 
 이런식으로 작성하면 된다.
+
+
+참고
+https://bloowhale.tistory.com/17?category=936896
