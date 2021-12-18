@@ -7,36 +7,30 @@ Lombok 롬복?
 
 https://projectlombok.org/download 에서 jar파일을 받는다
 
-설치할 경로에 jar파일을 둔다.
+설치할 경로에 jar파일을 둔다.(수업에서는 C:\Spring 경로에 두었음)
 
 cmd를 실행시킨다
 
-C:\Users\DongJu>cd C:\Spring  <-입력한다
-
-C:\Spring>dir
- C 드라이브의 볼륨에는 이름이 없습니다.
- 볼륨 일련 번호: 0CF4-0406
-
- C:\Spring 디렉터리
-
-2021-11-03  오후 03:23    <DIR>          .
-2021-11-03  오후 03:23    <DIR>          ..
-2021-10-25  오전 09:18    <DIR>          lec
-2021-11-03  오후 03:23         1,922,103 lombok.jar
-2021-11-03  오후 03:09    <DIR>          SpringSrc
-2021-10-25  오전 09:20    <DIR>          sts3.9.14
-2021-10-22  오후 02:04       449,823,968 sts3.9.14.zip
-               2개 파일         451,746,071 바이트
-               5개 디렉터리  352,781,844,480 바이트 남음
+C:\Users\DongJu>cd C:\Spring  <-입력한다(롬복을 둔 경로로 변경)
 
 C:\Spring>java -jar lombok.jar   <- 입력하고 실행하면 설치 창이뜬다
 
-스빼시파이 로케이션 클릭하여
+Specift location 클릭하여 Spring 설치경로를 따라 들어가서 
+(수업 시간을 기준 설치경로 C:\Spring\sts3.9.14\sts-bundle\sts-3.9.14.RELEASE)
 
+sts.exe 실행파일을 선택한다.
 
+선택하면 
 
-sts.ini 에 lombok이 있는지 확인(편집 눌러서 확인)
+설치창에 이클립스와 STS 두 개가 떠있을 것이다. 
 
+Install/Update를 눌러서 마무리한다.
 
+이후에 C:\Spring\sts3.9.14\sts-bundle\sts-3.9.14.RELEASE에 있는 실행파일 말고
 
+sts.ini을 우클릭 -> 편집 을 눌러서 
 
+-javaagent:C:\Spring\sts3.9.14\sts-bundle\sts-3.9.14.RELEASE\lombok.jar
+와 같이 롬복이 추가되었는지 확인한다.
+
+확인되었다면 설치가 끝났다.
