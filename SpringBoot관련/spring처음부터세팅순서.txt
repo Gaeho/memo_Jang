@@ -1,0 +1,31 @@
+1. java 설치 jdk11 + 환경설정
+2. 이클립스 설치
+3. 오라클XE (DB설치)
+4. 오라클 developer설치
+5. tomcat 설치
+6. Spring 설치
+7. rombok 설치
+----------------------------------
+Spring 프로젝트 import 전에 셋팅 할 것
+db에 유저 생성하고 권한 주기
+conn sys as sysdba 접속 후(안되면 sqlplus sys/oracle as sysdba)
+1234 비번 입력
+
+create user 유저명 identified by 비번 
+
+으로 유저 생성
+
+grant connect, resource, dba to 아이디;
+
+어떤 아이디에 모든 권한을 부여
+connect-> DBMS에 접속하기 위한 기본적인 커넥트 부여
+resource -> 사용자가 table, view 혹인 index를 생성할 수 있는 권한
+dba -> 시스템 관리에 앞서 필요한 모든 권한
+
+cmd를 통해 유저 생성 및 권한 부여한 후에 
+sql developer에 접속하여 새로운 접속을 만든다.
+
+미리 만들어 놓은 DB를 실행하여 데이터를 넣는다.
+
+
+--> 프로젝트를 import하여 작업을 진행한다.
