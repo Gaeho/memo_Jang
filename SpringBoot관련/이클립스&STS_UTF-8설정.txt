@@ -1,0 +1,35 @@
+자바 UTF-8 인코딩 설정
+
+프로젝트 import시에 한글이나 특정 문자가 깨지는 경우가 있다. 
+import한 프로젝트는 UTF-8로 설정되어 있지만 
+이클립스나 STS 인코딩이 EUC-KR 또는 MS949로 설정되어 있을 때 
+주로 발생하는 현상이다.
+
+망가진 문자를 복구하기 위해서는 이클립스나 sts의 설정을 UTF-8로 설정한다.
+
+1. Window - Preferences - General - Content Types에서
+
+ Java Class File 클릭하여 선택 후 
+
+하단에 있는 Default encoding 창에 UTF-8 입력 후에 OK
+
+2. 인코딩 설정
+Window - Preferences - General - Editors - Text Editors - Spelling
+하단에 있는 Encoding에 있는 라디오버튼 Other 선택 후
+드롭박스에서 UTF-8 적용
+
+Window - Preferences - General - Workspace  
+Text file encoding 항목에서 드롭박스에서 UTF-8 적용
+
+Window - Preferences - Web - JSP Files
+Encoding 설정을 ISO 10646/Unicode(UTF-8)로 설정 
+
+Window - Preferences - Web - CSS Files
+Encoding 설정을 ISO 10646/Unicode(UTF-8)로 설정 
+
+Window - Preferences - Web - HTML Files
+Encoding 설정을 ISO 10646/Unicode(UTF-8)로 설정 
+ 
+3. 프로젝트 인코딩 설정 
+Project - Properties - Resource 
+Text file encoding 항목에서 Other - UTF-8 선택
